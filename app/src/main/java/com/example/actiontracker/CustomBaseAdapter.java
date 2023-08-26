@@ -1,5 +1,6 @@
 package com.example.actiontracker;
 
+import android.app.usage.UsageStats;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,24 +9,26 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class CustomBaseAdapter extends BaseAdapter {
 
 
     Context context;
-    String[] listFruit;
-    int[] listImage;
+    List<UsageStats> usageStats;
     LayoutInflater layoutInflater;
 
-    public CustomBaseAdapter(Context ctx, String[] fruitList, int[] imageList) {
+    UsageTracker usageTracker = new UsageTracker();
+
+    public CustomBaseAdapter(Context ctx, List<UsageStats> usageStats) {
         this.context = ctx;
-        this.listFruit = fruitList;
-        this.listImage = imageList;
+        this.usageStats = usageStats;
         this.layoutInflater = LayoutInflater.from(ctx);
     }
 
     @Override
     public int getCount() {
-        return listFruit.length;
+        return usageStats.size();
     }
 
     @Override
@@ -42,11 +45,11 @@ public class CustomBaseAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = layoutInflater.inflate(R.layout.activity_custom_list_view, null);
 
-        TextView textView = (TextView) view.findViewById(R.id.text_view);
-        ImageView imageView = (ImageView) view.findViewById(R.id.image_icon);
+        TextView text_view_name = (TextView) view.findViewById(R.id.name_text_view);
+        TextView text_view_time = (TextView) view.findViewById(R.id.time_text_view);
 
-        textView.setText(listFruit[i]);
-        imageView.setImageResource(listImage[i]);
+        text_view_name.setText(usageStats.get(i).getPackageName());
+        text_view_time.setText("Last time used: " + usageTracker.getDateTimeFromEpochMillis(usageStats.get(i).getLastTimeUsed()));
 
         return view;
     }
