@@ -1,4 +1,4 @@
-package com.example.actiontracker;
+package com.mohanmmohadikar.actiontracker;
 
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;

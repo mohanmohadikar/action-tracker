@@ -1,4 +1,4 @@
-package com.example.actiontracker;
+package com.mohanmmohadikar.actiontracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,9 +13,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    String[] fruitList = {"Apple", "Banana", "Apricot", "Avacado", "Orange", "Water Melon"};
-    int[] imageList = {R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

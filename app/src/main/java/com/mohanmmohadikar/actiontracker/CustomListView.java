@@ -1,4 +1,4 @@
-package com.example.actiontracker;
+package com.mohanmmohadikar.actiontracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
